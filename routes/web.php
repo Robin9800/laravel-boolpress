@@ -20,6 +20,7 @@ Route::get('/', function () {
 //Rotte per l'autenticazione gestite da Laravel
 Auth::routes();
 
+//Rotte per arrivare alla pagina dell'admin
 Route::middleware('auth')
     ->namespace('Admin')
     ->name('admin')
@@ -28,3 +29,8 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')
         ->name('home');
     });
+
+//tutte le altre rotte portano alla 'guest home'
+Route::get("{any?}", function(){
+    return view('guest.home');
+} );
