@@ -47,7 +47,7 @@ class PostController extends Controller
         $newPost->fill($postData);
         $slug = Str::slug($newPost->title);
         $postFound = Post::where('slug', $slug)->first();
-        /*Finchè trovo che 'postFound' esiste continuo a ciclare definendo un contatore */
+        /*Finchè'postFound' esiste continuo a ciclare definendo un contatore */
         $counter = 1;
         while($postFound){
             $alternativeSlug = $slug . '_' . $counter;
