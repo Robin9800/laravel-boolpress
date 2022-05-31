@@ -55,6 +55,8 @@ class PostController extends Controller
             $postFound = Post::where('slug', $alternativeSlug)->first();
         }
         $newPost->$slug = $alternativeSlug;
+        $newPost->save();
+        return redirect()->route('admin.posts.index');
     }
 
     /**
