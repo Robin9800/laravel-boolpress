@@ -98,9 +98,14 @@ class PostController extends Controller
             'title'=> 'required|max:250',
             'content'=> 'required'
         ]);
-
+        
         $postData = $request->all();
         $post->fill($postData);
+
+        $post->slug = Post::convertToSlug($post->title);
+
+        $post->update();
+        return redirect()->route('admin.posts.index');
     }
 
     /**
