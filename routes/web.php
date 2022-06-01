@@ -26,9 +26,11 @@ Route::middleware('auth')
     ->name('admin')
     ->prefix('admin')
     ->group(function(){
-        Route::get('/', 'HomeController@index')
-        ->name('home');
+        Route::get('/', 'HomeController@index')->name('index');
+        Route::resource('/posts', 'PostController');
     });
+
+
 
 //tutte le altre rotte portano alla 'guest home'
 Route::get("{any?}", function(){

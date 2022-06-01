@@ -13,6 +13,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     //Funzione per recuperare tutti i post
     public function index()
     {
         $posts = Post::all();
@@ -47,7 +49,7 @@ class PostController extends Controller
         $newPost->fill($postData);
         $slug = Str::slug($newPost->title);
         $postFound = Post::where('slug', $slug)->first();
-        /*Finchè'postFound' esiste continuo a ciclare definendo un contatore */
+        /*Finchè 'postFound' esiste continuo a ciclare definendo un contatore */
         $counter = 1;
         while($postFound){
             $alternativeSlug = $slug . '_' . $counter;
