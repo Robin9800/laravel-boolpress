@@ -48,16 +48,9 @@ class PostController extends Controller
         $postData = $request->all();
         $newPost = new Post();
         $newPost->fill($postData);
-        $slug = Str::slug($newPost->title);
-        $postFound = Post::where('slug', $slug)->first();
-        /*Finchè 'postFound' esiste continuo a ciclare definendo un contatore */
-        $counter = 1;
-        while($postFound){
-            $alternativeSlug = $slug . '_' . $counter;
-            $counter++;
-            $postFound = Post::where('slug', $alternativeSlug)->first();
-        }
-        $newPost->$slug = $alternativeSlug;
+       
+        $newPost->slug = Post::convertToSlug($newPost->title);
+
         $newPost->save();
         return redirect()->route('admin.posts.index');
     }

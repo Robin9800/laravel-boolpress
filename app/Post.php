@@ -8,6 +8,7 @@ class Post extends Model
 {
     protected $fillable = ['title', 'content', 'slug'];
 
+    //Prende una stringa in input e ritorna una versione slug univoca
     public static function convertToSlug($title)
     {
         $slugPrefix = Str::slug($title);
