@@ -41,8 +41,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=> 'required|max:250',
-            'content'=> 'required'
+            'title' => 'required|max:250',
+            'content' => 'required|min:5|max:100'
+        ], [
+            'title.required' => 'Ttitolo deve essere valorizzato',
+            'title.max' => 'Hai superato i :attribute caratteri',
+            'content.min' => 'Minimo 5 caratteri'
+
         ]);
 
         $postData = $request->all();
