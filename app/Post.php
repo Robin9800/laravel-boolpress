@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'content', 'slug'];
+    protected $fillable = ['title', 'content', 'slug', 'category_id'];
 
     //Prende una stringa in input e ritorna una versione slug univoca
     public static function convertToSlug($title)
