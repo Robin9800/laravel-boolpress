@@ -52,7 +52,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $result = ['result'=>$category, 'success'=>true];
-        return request()->json($result);
+        return response()->json($result);
     }
 
     /**
