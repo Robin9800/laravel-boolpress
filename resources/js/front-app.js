@@ -1,5 +1,6 @@
-const app = new Vue({
-el: '#app',
-});
+AppComponent = require('./AppComponent.vue').default
 
-console.log(app);
+const app = new Vue({
+    el: '#app',
+    render: (h)=> h(AppComponent)
+});
