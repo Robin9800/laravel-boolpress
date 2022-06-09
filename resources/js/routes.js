@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import HomeComponent from './pages/HomeComponent';
+
 
 Vue.use(VueRouter);
+import HomeComponent from './pages/HomeComponent';
 
 const router = new VueRouter({
     mode: 'history',
@@ -14,3 +15,5 @@ const router = new VueRouter({
         }
     ]
 })
+
+export default router;
