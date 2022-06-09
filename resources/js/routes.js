@@ -1,5 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import HomeComponent from './pages/HomeComponent';
+import BlogComponent from './pages/BlogComponent';
+import ChiSiamoComponent from './pages/ChiSiamoComponent';
+import NotFound from './pages/NotFound';
 
 
 Vue.use(VueRouter);
